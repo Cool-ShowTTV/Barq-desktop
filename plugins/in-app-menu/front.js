@@ -4,14 +4,15 @@ const { Titlebar, Color } = require("custom-electron-titlebar");
 function $(selector) { return document.querySelector(selector); }
 
 module.exports = (options) => {
-	let visible = !config.get("options.hideMenu");
+	let visible = true;
 	const bar = new Titlebar({
 		backgroundColor: Color.fromHex("#050505"),
 		itemBackgroundColor: Color.fromHex("#1d1d1d"),
-		svgColor: Color.WHITE,
+		svgColor: Color.WHITE, 
 		menu: visible ? undefined : null
 	});
-	bar.updateTitle(" ");
+	bar.updateTitle("Barq desktop");
+	console.log(bar);
 	document.title = "Barq desktop";
 
 	const hideIcon = hide => $('.cet-window-icon').style.display = hide ? 'none' : 'flex';
@@ -30,18 +31,4 @@ module.exports = (options) => {
 	});
 
 	ipcRenderer.on("hideIcon", (_, hide) => hideIcon(hide));
-
-	// Increases the right margin of Navbar background when the scrollbar is visible to avoid blocking it (z-index doesn't affect it)
-	document.addEventListener('apiLoaded', () => {
-		setNavbarMargin();
-		const playPageObserver = new MutationObserver(setNavbarMargin);
-		playPageObserver.observe($('ytmusic-app-layout'), { attributeFilter: ['player-page-open_', 'playerPageOpen_'] })
-	}, { once: true, passive: true })
 };
-
-function setNavbarMargin() {
-	$('#nav-bar-background').style.right =
-		$('ytmusic-app-layout').playerPageOpen_ ?
-			'0px' :
-			'12px';
-}

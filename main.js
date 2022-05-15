@@ -2,6 +2,7 @@ const { fileExists, injectCSS } = require("./plugins/utils");
 const { app, BrowserWindow } = require("electron");
 const { setApplicationMenu } = require("./menu");
 const config = require("./config");
+const is = require("electron-is");
 const path = require("path");
 
 dev = true;
@@ -9,9 +10,18 @@ dev = true;
 const createWindow = () => {
     
 	const windowSize = config.get("window-size");
+	const useInlineMenu = config.plugins.isEnabled("in-app-menu");
     const win = new BrowserWindow({
+		icon: path.join(__dirname, "assets", "barq-navbar.png"),
         width: windowSize.width,
         height: windowSize.height,
+		titleBarStyle: useInlineMenu
+			? "hidden"
+			: is.macOS()
+			? "hiddenInset"
+			: "default",
+		autoHideMenuBar: config.get("options.hideMenu"),
+		backgroundColor: "#000",
     });
 
     win.webContents.loadURL(config.defaultConfig.url);
