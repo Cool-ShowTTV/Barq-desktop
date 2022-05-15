@@ -24,6 +24,7 @@
     "electron": "^18.2.3"
   },
   "dependencies": {
+    "custom-electron-titlebar": "^4.1.0",
     "electron-store": "^8.0.1"
   }
 }
