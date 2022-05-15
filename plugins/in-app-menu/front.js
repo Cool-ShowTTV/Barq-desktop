@@ -1,3 +1,4 @@
+const path = require("path");
 const { ipcRenderer } = require("electron");
 const config = require("../../config");
 const { Titlebar, Color } = require("custom-electron-titlebar");
@@ -9,7 +10,8 @@ module.exports = (options) => {
 		backgroundColor: Color.fromHex("#050505"),
 		itemBackgroundColor: Color.fromHex("#1d1d1d"),
 		svgColor: Color.WHITE, 
-		menu: visible ? undefined : null
+		menu: visible ? undefined : null,
+		icon: "https://web.barq.social/barq-navbar.png"
 	});
 	bar.updateTitle("Barq desktop");
 	console.log(bar);

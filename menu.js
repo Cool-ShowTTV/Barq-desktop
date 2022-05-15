@@ -32,7 +32,7 @@ const mainMenuTemplate = (win) => {
 	const refreshMenu = () => {
 		this.setApplicationMenu(win);
 		if (inAppMenuActive) {
-			win.webContents.send("refreshMenu");
+			//win.webContents.send("refreshMenu"); //this is not working
 		}
 	}
 	return [

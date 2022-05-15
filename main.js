@@ -22,6 +22,12 @@ const createWindow = () => {
 			: "default",
 		autoHideMenuBar: config.get("options.hideMenu"),
 		backgroundColor: "#000",
+		webPreferences: {
+			nodeIntegration: true,
+			preload: path.join(__dirname, "preload.js"),
+			nativeWindowOpen: true,
+			affinity: "main-window",
+		}
     });
 
     win.webContents.loadURL(config.defaultConfig.url);
