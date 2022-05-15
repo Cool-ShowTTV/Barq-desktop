@@ -1,5 +1,6 @@
 const { fileExists, injectCSS } = require("./plugins/utils");
 const { app, BrowserWindow } = require("electron");
+const { setApplicationMenu } = require("./menu");
 const config = require("./config");
 const path = require("path");
 
@@ -41,5 +42,6 @@ app.once("browser-window-created", (event, win) => {
 });
 
 app.whenReady().then(() => {
-    createWindow();
+    mainWin = createWindow();
+    setApplicationMenu(mainWin);
 });
