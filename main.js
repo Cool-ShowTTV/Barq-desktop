@@ -1,12 +1,16 @@
 const { app, BrowserWindow } = require("electron");
+const config = require("./config");
+
 
 const createWindow = () => {
+    
+	const windowSize = config.get("window-size");
     const win = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: windowSize.width,
+        height: windowSize.height,
     });
 
-    win.webContents.loadURL("https://web.barq.social/");
+    win.webContents.loadURL(config.defaultConfig.url);
 };
 
 function loadPlugins(win) {
