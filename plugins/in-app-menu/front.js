@@ -11,10 +11,10 @@ module.exports = (options) => {
 		itemBackgroundColor: Color.fromHex("#1d1d1d"),
 		svgColor: Color.WHITE, 
 		menu: visible ? undefined : null,
-		icon: "https://web.barq.social/barq-navbar.png"
+		//icon: "https://web.barq.social/barq-navbar.png"
+		
 	});
 	bar.updateTitle("Barq desktop");
-	console.log(bar);
 	document.title = "Barq desktop";
 
 	const hideIcon = hide => $('.cet-window-icon').style.display = hide ? 'none' : 'flex';
@@ -33,4 +33,18 @@ module.exports = (options) => {
 	});
 
 	ipcRenderer.on("hideIcon", (_, hide) => hideIcon(hide));
+
+	const observer = new MutationObserver((mutations, obs) => {
+		const hello = document.querySelector("body > div.cet-container")
+		if (hello) {
+			document.querySelector("body > div.cet-container").style.top = '0px';
+			obs.disconnect();
+			return;
+		}
+	});
+	  
+	observer.observe(document, {
+		childList: true,
+		subtree: true
+	});
 };
