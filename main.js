@@ -1,6 +1,9 @@
+const { fileExists, injectCSS } = require("./plugins/utils");
 const { app, BrowserWindow } = require("electron");
 const config = require("./config");
+const path = require("path");
 
+dev = true;
 
 const createWindow = () => {
     
@@ -15,9 +18,9 @@ const createWindow = () => {
 
 function loadPlugins(win) {
     // Going to be 100 with you I stole this from another electron project
-	injectCSS(win.webContents, path.join(__dirname, "youtube-music.css"));
+	injectCSS(win.webContents, path.join(__dirname,"themes", "main.css"));
 	win.webContents.once("did-finish-load", () => {
-		if (is.dev()) {
+		if (dev) {
 			console.log("did finish load");
 			win.webContents.openDevTools();
 		}
@@ -32,6 +35,10 @@ function loadPlugins(win) {
 		});
 	});
 }
+
+app.once("browser-window-created", (event, win) => {
+    loadPlugins(win);
+});
 
 app.whenReady().then(() => {
     createWindow();
