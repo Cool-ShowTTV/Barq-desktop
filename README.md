@@ -1,6 +1,7 @@
 # Barq-desktop
 Going to be a very scuffed Barq desktop app
-
+# Warning
+This is the first time I have ever used electron.js
 # Why
 They don't have is plan on it but it is a strech goal and I just want to see if I can do it<br>
 source: <br>
