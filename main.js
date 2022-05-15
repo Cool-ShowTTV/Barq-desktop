@@ -12,7 +12,7 @@ const createWindow = () => {
 	const windowSize = config.get("window-size");
 	const useInlineMenu = config.plugins.isEnabled("in-app-menu");
     const win = new BrowserWindow({
-		icon: path.join(__dirname, "assets", "barq-navbar.png"),
+		icon: path.join(__dirname, "assets", "favicon.png"),
         width: windowSize.width,
         height: windowSize.height,
 		titleBarStyle: useInlineMenu
