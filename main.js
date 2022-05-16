@@ -37,8 +37,9 @@ function loadPlugins(win) {
     // Going to be 100 with you I stole this from another electron project
 	injectCSS(win.webContents, path.join(__dirname,"themes", "main.css"));
 	win.webContents.once("did-finish-load", () => {
+		console.log("Finish loading");
 		if (dev) {
-			console.log("did finish load");
+			console.log("Opening devtools");
 			win.webContents.openDevTools();
 		}
 	});
