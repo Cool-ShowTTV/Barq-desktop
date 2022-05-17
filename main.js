@@ -12,7 +12,7 @@ const createWindow = () => {
 	const windowSize = config.get("window-size");
 	const useInlineMenu = config.plugins.isEnabled("in-app-menu");
     const win = new BrowserWindow({
-		icon: path.join(__dirname, "assets", "favicon.png"),
+		icon: path.join(__dirname, "assets", "barq-navbar.png"),
         width: windowSize.width,
         height: windowSize.height,
 		titleBarStyle: useInlineMenu
@@ -21,7 +21,7 @@ const createWindow = () => {
 			? "hiddenInset"
 			: "default",
 		autoHideMenuBar: config.get("options.hideMenu"),
-		backgroundColor: "#000",
+		backgroundColor: "#fff",
 		webPreferences: {
 			nodeIntegration: true,
 			preload: path.join(__dirname, "preload.js"),
@@ -35,7 +35,13 @@ const createWindow = () => {
 
 function loadPlugins(win) {
     // Going to be 100 with you I stole this from another electron project
-	injectCSS(win.webContents, path.join(__dirname,"themes", "main.css"));
+	
+	if (config.get("options.darkmode")) {
+		if (is.dev()) {
+			console.log("Injecting dark mode.");
+		}
+		injectCSS(win.webContents, path.join(__dirname,"themes", "darkmode.css"));
+	}
 	win.webContents.once("did-finish-load", () => {
 		console.log("Finish loading");
 		if (dev) {

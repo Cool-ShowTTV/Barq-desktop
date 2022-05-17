@@ -75,6 +75,15 @@ const mainMenuTemplate = (win) => {
 					},
 				},
 				{
+					label: "Dark Mode",
+					type: "checkbox",
+					checked: config.get("options.darkmode"),
+					click: (item) => {
+						config.setMenuOption("options.darkmode", item.checked);
+						console.log("Dark mode:", item.checked);
+					},
+				},
+				{
 					label: "Always on top",
 					type: "checkbox",
 					checked: config.get("options.alwaysOnTop"),
@@ -87,14 +96,6 @@ const mainMenuTemplate = (win) => {
 				{
 					label: "Advanced options",
 					submenu: [
-						{
-							label: "Proxy",
-							type: "checkbox",
-							checked: !!config.get("options.proxy"),
-							click: (item) => {
-								setProxy(item, win);
-							},
-						},
 						{
 							label: "Override useragent",
 							type: "checkbox",
@@ -109,14 +110,6 @@ const mainMenuTemplate = (win) => {
 							checked: config.get("options.disableHardwareAcceleration"),
 							click: (item) => {
 								config.setMenuOption("options.disableHardwareAcceleration", item.checked);
-							},
-						},
-						{
-							label: "Reset App cache when app starts",
-							type: "checkbox",
-							checked: config.get("options.autoResetAppCache"),
-							click: (item) => {
-								config.setMenuOption("options.autoResetAppCache", item.checked);
 							},
 						},
 						{ type: "separator" },
@@ -223,24 +216,3 @@ module.exports.setApplicationMenu = (win) => {
 	const menu = Menu.buildFromTemplate(menuTemplate);
 	Menu.setApplicationMenu(menu);
 };
-
-async function setProxy(item, win) {
-	const output = await prompt({
-		title: 'Set Proxy',
-		label: 'Enter Proxy Address: (leave empty to disable)',
-		value: config.get("options.proxy"),
-		type: 'input',
-		inputAttrs: {
-			type: 'url',
-			placeholder: "Example: 'socks5://127.0.0.1:9999"
-		},
-		width: 450
-	}, win);
-
-	if (typeof output === "string") {
-		config.setMenuOption("options.proxy", output);
-		item.checked = output !== "";
-	} else { //user pressed cancel
-		item.checked = !item.checked; //reset checkbox
-	}
-}
