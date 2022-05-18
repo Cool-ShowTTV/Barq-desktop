@@ -81,6 +81,29 @@ const mainMenuTemplate = (win) => {
 					click: (item) => {
 						config.setMenuOption("options.darkmode", item.checked);
 						console.log("Dark mode:", item.checked);
+						
+						dialog.showMessageBox(win, {
+							type: 'info',
+							title: 'Option changed',
+							message: 'Changing this requires restarting the app.\nPlease restart.',
+							buttons: ['Ok']
+						});
+					},
+				},
+				{
+					label: "Center Icon",
+					type: "checkbox",
+					checked: config.get("options.centericon"),
+					click: (item) => {
+						config.setMenuOption("options.centericon", item.checked);
+						console.log("Center icon set to:", item.checked);
+
+						dialog.showMessageBox(win, {
+							type: 'info',
+							title: 'Option changed',
+							message: 'Changing this requires restarting the app.\nPlease restart.',
+							buttons: ['Ok']
+						});
 					},
 				},
 				{
