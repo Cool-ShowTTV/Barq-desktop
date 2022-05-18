@@ -5,7 +5,10 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "postinstall": "electron-builder install-app-deps",
+    "build": "electron-builder --mac --windows --linux",
+    "release": "electron-builder --mac --windows --linux --publish always"
   },
   "repository": {
     "type": "git",
@@ -21,7 +24,8 @@
   },
   "homepage": "https://github.com/cool-showttv/barq-desktop#readme",
   "devDependencies": {
-    "electron": "^18.2.3"
+    "electron": "^18.2.3",
+    "electron-builder": "^23.0.3"
   },
   "dependencies": {
     "custom-electron-prompt": "^1.5.0",
