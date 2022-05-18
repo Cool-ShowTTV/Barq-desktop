@@ -127,14 +127,6 @@ const mainMenuTemplate = (win) => {
 								config.setMenuOption("options.overrideUserAgent", item.checked);
 							}
 						},
-						{
-							label: "Disable hardware acceleration",
-							type: "checkbox",
-							checked: config.get("options.disableHardwareAcceleration"),
-							click: (item) => {
-								config.setMenuOption("options.disableHardwareAcceleration", item.checked);
-							},
-						},
 						{ type: "separator" },
 						is.macOS() ?
 							{
