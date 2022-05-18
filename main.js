@@ -5,8 +5,6 @@ const config = require("./config");
 const is = require("electron-is");
 const path = require("path");
 
-dev = true;
-
 const createWindow = () => {
     
 	const windowSize = config.get("window-size");
@@ -42,9 +40,10 @@ function loadPlugins(win) {
 		}
 		injectCSS(win.webContents, path.join(__dirname,"themes", "darkmode.css"));
 	}
+	
 	win.webContents.once("did-finish-load", () => {
 		console.log("Finish loading");
-		if (dev) {
+		if (is.dev()) {
 			console.log("Opening devtools");
 			win.webContents.openDevTools();
 		}
