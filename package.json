@@ -1,14 +1,15 @@
 {
   "name": "barq-desktop",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Scuffed Barq app",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    
+
     "postinstall": "electron-builder install-app-deps",
-    "build": "electron-builder --windows",
+    "buildwin": "electron-builder --windows",
+    "build": "electron-builder --mac --windows --linux",
     "release": "electron-builder --mac --windows --linux --publish always"
   },
   "repository": {
