@@ -8,6 +8,7 @@ const defaultConfig = {
 		autoUpdates: false, // Planed but not implemented
 		hideMenu: true,
 		proxy: "",
+		darkmode: true
 	},
 	plugins: {
 	},
