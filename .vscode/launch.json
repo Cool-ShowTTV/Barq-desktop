@@ -5,7 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Electron Main",
+            "command": "yarn buildwin",
+            "name": "Run yarn buildwin",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "name": "Launch app",
             "program": "${workspaceFolder}/main.js",
             "request": "launch",
             "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
