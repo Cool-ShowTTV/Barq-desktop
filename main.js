@@ -11,8 +11,8 @@ const createWindow = () => {
 	const useInlineMenu = config.plugins.isEnabled("in-app-menu");
 	
 	const icon = config.get("options.centericon")
-					? path.join(__dirname, "assets", "barq-navbar.png")
-					: path.join(__dirname, "assets", "barq-navbar-center.png");
+					? path.join(__dirname, "assets", "barq-navbar-center.png")
+					: path.join(__dirname, "assets", "barq-navbar.png");
 
     const win = new BrowserWindow({
 		icon: icon,
