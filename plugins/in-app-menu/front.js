@@ -37,8 +37,15 @@ module.exports = (options) => {
 	const observer = new MutationObserver((mutations, obs) => {
 		const hello = document.querySelector("body > div.cet-container")
 		if (hello) {
-			document.querySelector("body > div.cet-container").style.top = '0px';
-			document.querySelector("#root > div > nav > a > img").remove() //remove logo from navbar
+			document.querySelector("body > div.cet-container").style.top = '0px'; // fix for top bar
+			try {
+				document.querySelector("#root > div > nav > a > img").remove() //remove logo from navbar
+				console.log("logo removed")
+			} catch (e) {
+				document.querySelector("#root > div > div.sc-eCImPb.gPqAwn > div > a.sc-gsDKAQ.inUaRg.neutral").remove(); //remove return to homepage
+				document.querySelector("#root > div > div.sc-eCImPb.gPqAwn > div > a").text = "You have no choice in this matter";
+				console.log("\"Return to homepage\" button removed")
+			}
 			obs.disconnect();
 			return;
 		}
