@@ -27,7 +27,8 @@
   "homepage": "https://github.com/cool-showttv/barq-desktop#readme",
   "devDependencies": {
     "electron": "^18.2.3",
-    "electron-builder": "^23.0.3"
+    "electron-builder": "^23.0.3",
+    "dmg-license": "^1.0.9" 
   },
 	"build": {
 		"appId": "com.coolshow.barqapp",
