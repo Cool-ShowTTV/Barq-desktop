@@ -11,6 +11,9 @@ const defaultConfig = {
 		darkmode: true
 	},
 	plugins: {
+		"in-app-menu": {
+			enabled: true
+		}
 	},
 };
 
