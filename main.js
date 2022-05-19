@@ -26,10 +26,10 @@ const createWindow = () => {
 		autoHideMenuBar: config.get("options.hideMenu"),
 		backgroundColor: "#fff",
 		webPreferences: {
-			nodeIntegration: true,
+			nodeIntegration: false,
 			preload: path.join(__dirname, "preload.js"),
 			nativeWindowOpen: true,
-			affinity: "main-window",
+			affinity: "main-window"
 		}
     });
 	
