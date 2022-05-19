@@ -19,7 +19,6 @@ module.exports = (options) => {
 	const hideIcon = hide => document.querySelector('.cet-window-icon').style.display = hide ? 'none' : 'flex';
 
 	if (options.hideIcon) hideIcon(true);
-	hideIcon(true);
 
 	ipcRenderer.on("refreshMenu", (_, showMenu) => {
 		if (showMenu === undefined && !visible) return;
