@@ -7,7 +7,7 @@ const is = require("electron-is");
 const { getAllPlugins } = require("./plugins/utils");
 const config = require("./config");
 
-const prompt = require("custom-electron-prompt");
+//const prompt = require("custom-electron-prompt");
 
 // true only if in-app-menu was loaded on launch
 const inAppMenuActive = config.plugins.isEnabled("in-app-menu");
@@ -80,8 +80,10 @@ const mainMenuTemplate = (win) => {
 					checked: config.get("options.darkmode"),
 					click: (item) => {
 						config.setMenuOption("options.darkmode", item.checked);
-						console.log("Dark mode:", item.checked);
-						
+						if (is.dev()){
+							console.log("Dark mode:", item.checked);
+						}
+
 						dialog.showMessageBox(win, {
 							type: 'info',
 							title: 'Option changed',
@@ -96,7 +98,9 @@ const mainMenuTemplate = (win) => {
 					checked: config.get("options.centericon"),
 					click: (item) => {
 						config.setMenuOption("options.centericon", item.checked);
-						console.log("Center icon set to:", item.checked);
+						if (is.dev()){
+							console.log("Center icon set to:", item.checked);
+						}
 
 						dialog.showMessageBox(win, {
 							type: 'info',
@@ -104,15 +108,6 @@ const mainMenuTemplate = (win) => {
 							message: 'Changing this requires restarting the app.\nPlease restart.',
 							buttons: ['Ok']
 						});
-					},
-				},
-				{
-					label: "Always on top",
-					type: "checkbox",
-					checked: config.get("options.alwaysOnTop"),
-					click: (item) => {
-						config.setMenuOption("options.alwaysOnTop", item.checked);
-						win.setAlwaysOnTop(item.checked);
 					},
 				},
 				{ type: "separator" },
