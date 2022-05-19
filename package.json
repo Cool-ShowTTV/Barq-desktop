@@ -10,7 +10,8 @@
     "postinstall": "electron-builder install-app-deps",
     "buildwin": "electron-builder --windows",
     "build": "electron-builder --mac --windows --linux",
-    "release": "electron-builder --mac --windows --linux --publish always"
+    "release": "electron-builder --mac --windows --linux --publish always",
+    "releasewin": "electron-builder --windows --publish always"
   },
   "repository": {
     "type": "git",
