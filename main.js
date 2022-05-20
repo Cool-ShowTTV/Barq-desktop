@@ -42,6 +42,7 @@ function loadPlugins(win) {
     // Going to be 100 with you I stole this from another electron project
 	
 	if (config.get("options.darkmode")) {
+		// Inject the darkmode CSS if enabled
 		if (is.dev()) {
 			console.log("Injecting dark mode.");
 		}
