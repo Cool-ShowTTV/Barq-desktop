@@ -45,7 +45,7 @@ jobs:
       - name: Build on Linux
         if: startsWith(matrix.os, 'ubuntu')
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
           yarn run release:linux
 
