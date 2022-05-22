@@ -38,7 +38,7 @@ jobs:
       - name: Build on Mac
         if: startsWith(matrix.os, 'macOS')
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           yarn run release:mac
 
@@ -52,6 +52,6 @@ jobs:
       - name: Build on Windows
         if: startsWith(matrix.os, 'windows')
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           yarn run release:win

@@ -14,7 +14,7 @@
     "releasewin": "electron-builder --windows --publish always",
 
     
-		"release:linux": "electron-builder --linux -p always",
+		"release:linux": "electron-builder --linux",
 		"release:mac": "electron-builder --mac -p always",
 		"release:win": "electron-builder --win -p always"
   },
