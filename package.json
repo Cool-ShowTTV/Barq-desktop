@@ -11,7 +11,12 @@
     "buildwin": "electron-builder --windows",
     "build": "electron-builder --mac --windows --linux",
     "release": "electron-builder --mac --windows --linux --publish always",
-    "releasewin": "electron-builder --windows --publish always"
+    "releasewin": "electron-builder --windows --publish always",
+
+    
+		"release:linux": "yarn run clean && electron-builder --linux -p always -c.snap.publish=github",
+		"release:mac": "yarn run clean && electron-builder --mac -p always",
+		"release:win": "yarn run clean && electron-builder --win -p always"
   },
   "repository": {
     "type": "git",
