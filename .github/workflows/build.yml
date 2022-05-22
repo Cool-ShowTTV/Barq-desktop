@@ -35,11 +35,6 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
-      - name: Test
-        uses: GabrielBB/xvfb-action@v1
-        with:
-          run: yarn test
-
       - name: Build on Mac
         if: startsWith(matrix.os, 'macOS')
         env:
