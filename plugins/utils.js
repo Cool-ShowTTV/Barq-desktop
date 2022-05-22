@@ -1,4 +1,3 @@
-// Stolen from https://github.com/th-ch/youtube-music/blob/master/plugins/utils.js
 const fs = require("fs");
 const path = require("path");
 
