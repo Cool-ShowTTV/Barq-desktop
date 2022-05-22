@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [macos-latest, windows-latest]
 
     steps:
       - uses: actions/checkout@v3
@@ -38,7 +38,7 @@ jobs:
       - name: Build on Mac
         if: startsWith(matrix.os, 'macOS')
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
           yarn run release:mac
 
@@ -52,6 +52,6 @@ jobs:
       - name: Build on Windows
         if: startsWith(matrix.os, 'windows')
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
           yarn run release:win
