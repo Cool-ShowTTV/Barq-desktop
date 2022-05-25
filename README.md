@@ -2,7 +2,9 @@
 <h1>Barq Desktop</h1>
   <h3>Scuffed Electron desktop app</h3>
   <a href="https://github.com/Cool-showTTV/Barq-desktop/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Cool-showTTV/Barq-desktop?style=for-the-badge"></a>
-  <a href="https://github.com/Cool-showTTV/Barq-desktop/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Cool-showTTV/Barq-desktop?style=for-the-badge&"></a>
+  <a href="https://github.com/Cool-showTTV/Barq-desktop/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Cool-showTTV/Barq-desktop?style=for-the-badge&"></a><br>
+  <a href="#"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/Cool-showttv/barq-desktop?style=for-the-badge"></a>
+  <a href="#"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/cool-showttv/barq-desktop?style=for-the-badge"></a>
 </div>
 
 <div align="center">
