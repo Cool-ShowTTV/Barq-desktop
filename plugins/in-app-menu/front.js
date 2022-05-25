@@ -37,23 +37,7 @@ module.exports = (options) => {
 		const checkIfLoaded = document.querySelector("body > div.cet-container") // Checks if the menu bar is loaded
 		if (checkIfLoaded) {
 			document.querySelector("body > div.cet-container").style.top = '0px'; // fix for top bar
-			try {
-				document.querySelector("#root > div > nav > a > img").remove() //remove logo from navbar
-				if (is.dev()){
-					console.log("logo removed")
-				}
-			} catch (e) {
-				try{
-					document.querySelector("#root > div > div.sc-eCImPb.gPqAwn > div > a.sc-gsDKAQ.inUaRg.neutral").remove(); //remove return to homepage
-					
-					if (is.dev()){
-						//It makes me feel better about my life when I see this but it wont be in built in version
-						document.querySelector("#root > div > div.sc-eCImPb.gPqAwn > div > a").text = "You have no choice in this matter";
-						console.log("\"Return to homepage\" button removed")
-					}
-				} catch (e) {}
-			}
-			//obs.disconnect();
+			obs.disconnect();
 			return;
 		}
 	});

@@ -30,4 +30,22 @@ document.addEventListener("DOMContentLoaded", () => {
 			run(options);
 		});
 	});
+
+	
+
+	const observer = new MutationObserver((mutations, obs) => {
+		const checkIfLoaded = document.querySelector("body > div.cet-container") // Checks if the menu bar is loaded
+		if (checkIfLoaded) {
+			try{
+				document.querySelector("#root > div > div.sc-eCImPb.gPqAwn > div > a.sc-gsDKAQ.inUaRg.neutral").remove(); //remove return to homepage
+			} catch (e) {}
+			
+			return;
+		}
+	});
+	  
+	observer.observe(document, {
+		childList: true,
+		subtree: true
+	});
 });
