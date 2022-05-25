@@ -1,4 +1,4 @@
-name: Build Barq desktop
+name: Test build Barq desktop for Win
 
 on:
   - push
