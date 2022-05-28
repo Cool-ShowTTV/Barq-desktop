@@ -1,0 +1,5 @@
+Message "I've got a sugguestion for the app...":
+https://twitter.com/messages/compose?recipient_id=1526301009781325828&text=I%27ve%20got%20a%20sugguestion%20for%20the%20app...%20
+
+template:
+https://twitter.com/messages/compose?recipient_id=1526301009781325828&text=(message)
