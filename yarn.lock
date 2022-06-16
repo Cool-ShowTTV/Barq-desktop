@@ -716,9 +716,9 @@ electron-store@^8.0.2:
     conf "^10.1.2"
     type-fest "^2.12.2"
 
-electron@^18.3.3:
-  version "18.3.3"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-18.3.3.tgz#1c48273c1ad1522b8c18f19575e862c7ccd9f409"
+electron@^18.3.4:
+  version "18.3.4"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-18.3.4.tgz#efbc0d1c794bccac62e95556d4e355e8a3eca9a4"
   dependencies:
     "@electron/get" "^1.13.0"
     "@types/node" "^16.11.26"
