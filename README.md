@@ -2,7 +2,7 @@
     <h1>Barq Desktop</h1>
     <h2>
       
-      I am working on the HTML of the app. This will continue later!
+      On pause until the Barq devs add a public API because I don't feel like reverse engineering the app.
   
   </h2>
     <h3>Scuffed Electron desktop app</h3>
